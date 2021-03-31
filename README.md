@@ -23,10 +23,20 @@ TensorBoard is launched by the following command.
 tensorboard --logdir=trained
 ```
 
+The approximation performance of the model can be checked from the following image on TensorBoard.
+
+|        Model / Differential equation / Solution expression        |                           epoch 0                            |                           epoch 1000                            |                           epoch 3000                            |                           epoch 20000                            |
+| :---------------------------------------------------------------: | :----------------------------------------------------------: | :-------------------------------------------------------------: | :-------------------------------------------------------------: | :--------------------------------------------------------------: |
+| 210401-055205-beautiful_tu / $y''+y=0$ / $y = \cos(x) + \sin(x)$  | ![](README/210401-055205-beautiful_tu:predicted:epoch0.png)  | ![](README/210401-055205-beautiful_tu:predicted:epoch1000.png)  | ![](README/210401-055205-beautiful_tu:predicted:epoch3000.png)  | ![](README/210401-055205-beautiful_tu:predicted:epoch20000.png)  |
+| 210401-055656-vibrant_euler / $y''+y=0$ / $y = \cos(x) + \sin(x)$ | ![](README/210401-055656-vibrant_euler:predicted:epoch0.png) | ![](README/210401-055656-vibrant_euler:predicted:epoch1000.png) | ![](README/210401-055656-vibrant_euler:predicted:epoch3000.png) | ![](README/210401-055656-vibrant_euler:predicted:epoch20000.png) |
+
+As the epoch progresses, the orange estimated plot on the image gradually approaches the blue correct answer plot.
+The residuals when substituted into the differential equation, shown below the image, are also gradually approaching zero.
+Here we learn only for `-1<x<9`, and the performance is bad for unlearned `x<-1` and `9<x`.
 ## Change Target Differential Equation
 
-The differential equations of the target and the equations of their solutions are written in `equation.py`.
-The differential equation is written in the `differential_equation` function, and the equation of the solution in the `expression` function.
+The differential equations of the target and the expressions of their solutions are written in `equation.py`.
+The differential equation is written in the `differential_equation` function, and the solution expression in the `expression` function.
 If you do not know the solution to a differential equation, it is not supported.
 (I know it sounds funny that it takes a solution to learn a solution, but...)
 
