@@ -31,7 +31,7 @@ If you do not know the solution to a differential equation, it is not supported.
 (I know it sounds funny that it takes a solution to learn a solution, but...)
 
 ## File Description
-****
+
 ```
 ├── README.md
 ├── requirements.txt
